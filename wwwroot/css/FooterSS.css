@@ -1,0 +1,24 @@
+﻿body {
+}
+
+/*comça aqui*/
+.social-icons {
+    text-align: left;
+    font-family: "Open Sans";
+}
+
+    .social-icons ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+    }
+
+li {
+    display: inline-block;
+    font-size: 1.4em;
+    margin: 0 5px;
+    text-decoration: none
+}
+
+

@@ -1,0 +1,23 @@
+﻿body {
+
+}
+.container {
+    /*    margin: 10px auto;
+    width: 90%;
+    padding: 8px;*/
+}
+
+.imgwallet {
+    float: right;
+    margin-left: 15px;
+    width: 150px;
+    height: 170px;
+    padding: 0 10px 0 0;
+    display: inline-block;
+}
+
+.text {
+    text-align: justify;
+    font-family: Verdana;
+
+}

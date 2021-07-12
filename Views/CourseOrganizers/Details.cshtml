@@ -1,0 +1,60 @@
+﻿@model CSO_LF089.Models.CourseOrganizer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Details</h2>
+    </div>
+    <div class="col-6 text-right">
+        <h3 class="text-info">Course Organizer</h3>
+    </div>
+</div>
+<hr />
+<div>
+    <dl class="row border-dark">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Subjects)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Subjects)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseDuration)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CourseDuration)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Localization)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Localization)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.purchased)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.purchased)
+        </dd>
+    </dl>
+</div>
+<div class="form-group">
+    <a class="btn btn-info" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> 
+    <a class="btn btn-outline-secondary" asp-action="Index">Back to List</a>
+</div>

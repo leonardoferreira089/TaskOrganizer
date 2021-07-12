@@ -1,0 +1,69 @@
+﻿@model CSO_LF089.Models.Book
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Create</h2>
+    </div>
+    <div class="col-6 text-right">
+        <h3 class="text-info">Course Organizer</h3>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookName" class="control-label"></label>
+                <input asp-for="BookName" class="form-control" />
+                <span asp-validation-for="BookName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookSubject" class="control-label"></label>
+                <input asp-for="BookSubject" class="form-control" />
+                <span asp-validation-for="BookSubject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author" class="control-label"></label>
+                <input asp-for="Author" class="form-control" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Language" class="control-label"></label>
+                <select asp-for="Language" class="form-control">
+                    <option value="Portuguese">Portuguese</option>
+                    <option value="English">English</option>
+                    <option value="French">French</option>
+                    <option value="--">Other</option>
+                </select>
+                <span asp-validation-for="Language" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReadingStatus" class="control-label"></label>
+                <select asp-for="ReadingStatus" class="form-control">
+                    <option value="Not-started">Not Started</option>
+                    <option value="In-Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="--">Other</option>
+                </select>
+                <span asp-validation-for="ReadingStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageFile" class="control-label"></label>
+                <input asp-for="ImageFile" accept="image/*" />
+                <span asp-validation-for="ImageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-info" />
+                <a class="btn btn-outline-secondary" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

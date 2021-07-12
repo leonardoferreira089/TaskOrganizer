@@ -1,0 +1,76 @@
+﻿@model CSO_LF089.Models.CourseOrganizer
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Create</h2>
+    </div>
+    <div class="col-6 text-right">
+        <h3 class="text-info">Course Organizer</h3>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CourseName" class="control-label"></label>
+                <input asp-for="CourseName" class="form-control" />
+                <span asp-validation-for="CourseName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subjects" class="control-label"></label>
+                <select asp-for="Subjects" class="form-control">
+                    <option value="Asp.Net Core">Asp.Net Core</option>
+                    <option value="C# - Fundamentals">C# - Fundamentals</option>
+                    <option value="SqlServer">SqlServer</option>
+                    <option value="Front-end">Front-end</option>
+                    <option value="French">French</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Computer skills">Computer skills</option>
+                    <option value="Dev-Skills">Dev-Skills</option>
+                    <option value="--">Other</option>
+                </select>
+                <span asp-validation-for="Subjects" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CourseDuration" class="control-label"></label>
+                <input asp-for="CourseDuration" class="form-control" />
+                <span asp-validation-for="CourseDuration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control">
+                    <option value="Not-started">Not Started</option>
+                    <option value="In-Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="--">Other</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Localization" class="control-label"></label>
+                <input asp-for="Localization" class="form-control" />
+                <span asp-validation-for="Localization" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="purchased" /> @Html.DisplayNameFor(model => model.purchased)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-info" />
+                <a class="btn btn-outline-secondary" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

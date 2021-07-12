@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CSO_LF089.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Book List</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info">Create New</a>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookSubject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Language)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReadingStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookSubject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReadingStatus)
+                </td>
+                <td>
+                    <a href="@("img/" +item.ImageName)">
+                        <img src="@("~/img/"+item.ImageName)" alt="@item.ImageName" asp-append-version="true" style="width: 70px; height: 100px; align-items:center" />
+                    </a>
+
+                </td>
+                <td style="width: 150px">
+                    <div class="btn-group">
+                        <a asp-action="Edit" asp-controller="Books" class="btn btn-primary" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a asp-action="Details" asp-controller="Books" class="btn btn-success" asp-route-id="@item.Id"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                        <a asp-action="Delete" asp-controller="Books" class="btn btn-danger" asp-route-id="@item.Id"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,90 @@
+﻿@model CSO_LF089.Models.ViewModels.CourseGenreViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col"> 
+    <h2 class="text-info">My Courses</h2>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        <form asp-controller="CourseOrganizers" asp-action="Index" method="get">
+            <div class="col">
+                <select class="form-control-sm" asp-for="CourseGenre" asp-items="Model.Genres">
+                    <option>All</option>
+                </select>
+            </div>
+        </form>
+        <form asp-controller="CourseOrganizers" asp-action="Index" method="get">
+            <div class="col">
+                Title:  <input class="form-control-sm" type="text" asp-for="SearchString" />
+                <input type="submit" value="Filter" class="bnt btn-outline-info" />
+            </div>
+
+        </form>
+        <form asp-controller="CourseOrganizers" asp-action="Index" method="get" class="col text-right">
+            <div>
+                <a asp-action="Create" class="btn btn-info">Create New</a>
+            </div>
+        </form>
+    </div>
+    
+</div>
+<br />
+
+<table class="table" border="0">
+    <thead>
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].CourseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].Subjects)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].CourseDuration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].Localization)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses[0].purchased)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Courses)
+        {
+            <tr class="table-hover">
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subjects)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.CourseDuration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Localization)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.purchased)
+                </td>
+                <td>
+                    <partial name="_ButtonPartial" model="@item.Id" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
